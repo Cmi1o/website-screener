@@ -33,4 +33,5 @@ class FilesManager:
     ) -> bool:
         first_path = self._get_photo_path(first_serial_number)
         second_path = self._get_photo_path(second_serial_number)
+
         return dhash(Image.open(first_path)) == dhash(Image.open(second_path))

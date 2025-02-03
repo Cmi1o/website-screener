@@ -41,8 +41,10 @@ class DocxManager(FilesManager):
 
         if doc_section.orientation != new_orientation:
             doc_section.orientation = new_orientation
-            doc_section.page_width = doc_section.page_height
-            doc_section.page_height = doc_section.page_width
+            doc_section.page_width, doc_section.page_height = (
+                doc_section.page_height,
+                doc_section.page_width,
+            )
 
         doc.save(docx_path)
 
