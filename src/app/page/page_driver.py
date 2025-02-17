@@ -33,10 +33,9 @@ class PageDriver:
 
     @property
     def screen_sizes(self) -> ScreenSizes:
-        return ScreenSizes(
-            width=self.__driver.get_window_size()['width'],
-            height=self.__driver.get_window_size()['height'],
-        )
+        sizes = self.__driver.get_window_size()
+
+        return ScreenSizes(width=sizes['width'], height=sizes['height'])
 
     def scroll_down(self, step: float = 515) -> None:
         self.__driver.execute_script(f'window.scrollBy(0, {step})')
