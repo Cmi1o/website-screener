@@ -56,10 +56,9 @@ class DocxManager(FilesManager):
 
         get_number = lambda file_name: int(file_name.split('_')[-1].split('.')[0])
 
-        dir_list = sorted(os.listdir(self._abs_path(dir_path)), key=get_number)
-
         docx_path = self._abs_path(docx_path) if docx_path else self._docx_path
         doc = Document(docx_path)
+        dir_list = sorted(os.listdir(self._abs_path(dir_path)), key=get_number)
 
         for file_name in dir_list:
             if (
